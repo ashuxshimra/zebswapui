@@ -2,7 +2,7 @@ import React from 'react';
 
 function SwapDetails({ details }) {
   return (
-    <div className="space-y-2 text-sm">
+    <div className="space-y-2 text-sm" style={{ backgroundColor: 'rgba(26, 26, 26, 0.3)', padding: '12px', borderRadius: '8px' }}>
       {/* Estimated Output */}
       <div className="flex justify-between items-center">
         <span className="text-gray-400">Estimated Output</span>
@@ -31,4 +31,3 @@ function SwapDetails({ details }) {
 }
 
 export default SwapDetails;
-

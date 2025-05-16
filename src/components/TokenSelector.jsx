@@ -25,11 +25,26 @@ function TokenSelector({ token, onSelectToken, availableTokens }) {
     { symbol: 'USDC', icon: 'U', color: 'bg-green-600' },
     { symbol: 'BTC', icon: 'B', color: 'bg-orange-600' }
   ];
+
+  // Button and dropdown styles
+  const buttonStyle = {
+    backgroundColor: 'rgba(42, 42, 42, 0.8)',
+  };
+
+  const dropdownStyle = {
+    backgroundColor: '#1a1a1a',
+    border: '1px solid #333333',
+  };
+
+  const dropdownItemHoverStyle = {
+    backgroundColor: '#2a2a2a',
+  };
   
   return (
     <div className="relative" ref={dropdownRef}>
       <button 
-        className="flex items-center bg-card-light rounded-lg pr-2 pl-1 py-1"
+        className="flex items-center rounded-lg pr-2 pl-1 py-1"
+        style={buttonStyle}
         onClick={() => setIsOpen(!isOpen)}
       >
         <div className={`w-8 h-8 rounded-full ${token.color || 'bg-blue-600'} flex items-center justify-center mr-2`}>
@@ -43,13 +58,20 @@ function TokenSelector({ token, onSelectToken, availableTokens }) {
       
       {/* Token dropdown */}
       {isOpen && (
-        <div className="absolute top-full left-0 mt-1 w-48 bg-card rounded-lg shadow-lg py-2 z-50">
+        <div className="absolute top-full left-0 mt-1 w-48 rounded-lg shadow-lg py-2 z-50" style={dropdownStyle}>
           <div className="px-3 py-2 text-sm font-medium text-gray-400">Select Token</div>
           <div className="max-h-48 overflow-y-auto">
             {tokens.map((t) => (
               <div 
                 key={t.symbol} 
-                className="flex items-center px-3 py-2 hover:bg-card-light cursor-pointer"
+                className="flex items-center px-3 py-2 hover:bg-opacity-80 cursor-pointer"
+                style={{ transition: 'background 0.2s' }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.backgroundColor = dropdownItemHoverStyle.backgroundColor;
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.backgroundColor = '';
+                }}
                 onClick={() => {
                   onSelectToken(t);
                   setIsOpen(false);

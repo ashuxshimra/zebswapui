@@ -73,9 +73,20 @@ function SwapCard() {
     slippageTolerance: '0.5%'
   };
   
+  // New card style with updated colors
+  const cardStyle = {
+    backgroundColor: 'rgba(26, 26, 26, 0.85)',
+    borderRadius: '12px',
+    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)',
+  };
+
+  const inputBgStyle = {
+    backgroundColor: 'rgba(42, 42, 42, 0.8)'
+  };
+  
   return (
     <div className="w-full max-w-md px-4">
-      <div className="swap-card p-6 overflow-hidden">
+      <div className="swap-card p-6 overflow-hidden" style={cardStyle}>
         {/* Card Header */}
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-xl font-bold text-white">Swap</h2>
@@ -93,7 +104,7 @@ function SwapCard() {
             <span className="text-gray-400">Balance: {fromToken.balance} {fromToken.symbol}</span>
           </div>
           
-          <div className="flex items-center bg-background-dark rounded-lg p-3">
+          <div className="flex items-center rounded-lg p-3" style={inputBgStyle}>
             <TokenSelector 
               token={fromToken} 
               onSelectToken={(token) => {
@@ -120,7 +131,8 @@ function SwapCard() {
                 className="bg-transparent text-white text-2xl text-right outline-none w-full" 
               />
               <button 
-                className="ml-2 px-2 py-1 bg-primary rounded text-xs text-white hover:bg-primary-dark transition-colors"
+                className="ml-2 px-2 py-1 rounded text-xs text-white hover:opacity-80 transition-colors"
+                style={{ backgroundColor: '#8b5cf6' }}
                 onClick={handleMaxClick}
               >
                 MAX
@@ -141,7 +153,7 @@ function SwapCard() {
             <span className="text-gray-400">Balance: {toToken.balance} {toToken.symbol}</span>
           </div>
           
-          <div className="flex items-center bg-background-dark rounded-lg p-3">
+          <div className="flex items-center rounded-lg p-3" style={inputBgStyle}>
             <TokenSelector 
               token={toToken} 
               onSelectToken={(token) => {
@@ -171,7 +183,11 @@ function SwapCard() {
         
         {/* Swap Button */}
         <button 
-          className="w-full gradient-button text-white font-semibold py-3 rounded-lg mt-4 transition-all hover:shadow-lg disabled:opacity-50"
+          className="w-full text-white font-semibold py-3 rounded-lg mt-4 transition-all hover:shadow-lg disabled:opacity-50"
+          style={{ 
+            background: 'linear-gradient(to right, #8b5cf6, #3b82f6)',
+            boxShadow: !fromAmount || parseFloat(fromAmount) <= 0 ? 'none' : '0 0 10px rgba(139, 92, 246, 0.5)'
+          }}
           disabled={!fromAmount || parseFloat(fromAmount) <= 0}
         >
           {!fromAmount || parseFloat(fromAmount) <= 0 ? 'Enter an amount' : 'Swap'}

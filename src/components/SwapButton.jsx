@@ -1,9 +1,26 @@
 import React from 'react';
 
 function SwapButton({ onSwapTokens }) {
+  // New button style
+  const buttonStyle = {
+    backgroundColor: '#2a2a2a',
+    border: '4px solid #1a1a1a',
+  };
+
+  const hoverStyle = {
+    backgroundColor: '#333333',
+  };
+
   return (
     <button 
-      className="w-10 h-10 rounded-full bg-card-light border-4 border-card flex items-center justify-center hover:bg-background transition-colors"
+      className="w-10 h-10 rounded-full flex items-center justify-center transition-colors"
+      style={buttonStyle}
+      onMouseOver={(e) => {
+        e.currentTarget.style.backgroundColor = hoverStyle.backgroundColor;
+      }}
+      onMouseOut={(e) => {
+        e.currentTarget.style.backgroundColor = buttonStyle.backgroundColor;
+      }}
       onClick={onSwapTokens}
     >
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-purple-400">

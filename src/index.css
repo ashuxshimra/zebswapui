@@ -1,84 +1,93 @@
-  @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  html, body, #root {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-  }
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
 
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background-color: #0f172a;
-    color: white;
-    max-width: 100vw;
-  }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: white;
+  max-width: 100vw;
+  background-color: #1a1a1a; /* Fallback color */
+}
 
-  /* Custom gradient backgrounds */
-  .gradient-text {
-    background: linear-gradient(to right, #d8b4fe, #818cf8);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    word-break: break-word;
-  }
+/* Background with starry image */
+.bg-background-dark {
+  background-image: url('./assets/images/brandingbg.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 
-  .gradient-button {
-    background: linear-gradient(to right, #8b5cf6, #3b82f6);
-  }
+/* Custom gradient backgrounds */
+.gradient-text {
+  background: linear-gradient(to right, #ffffff, #d8d8d8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
 
-  .gradient-button:hover {
-    background: linear-gradient(to right, #7c3aed, #2563eb);
-  }
+.gradient-button {
+  background: linear-gradient(to right, #8b5cf6, #3b82f6);
+}
 
-  /* Custom card styles */
-  .swap-card {
-    background-color: #1e1b4b;
-    border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-direction: column;
-    min-height: 460px; /* Minimum height to ensure it looks good */
-    width: 100%;
-    max-width: 100%;
-  }
+.gradient-button:hover {
+  background: linear-gradient(to right, #7c3aed, #2563eb);
+}
 
-  /* Background colors */
-  .bg-background-dark {
-    background-color: #0f172a;
-  }
+/* Custom card styles */
+.swap-card {
+  background-color: rgba(26, 26, 26, 0.85);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  min-height: 460px; /* Minimum height to ensure it looks good */
+  width: 100%;
+  max-width: 100%;
+}
 
-  .bg-background {
-    background-color: #1e293b;
-  }
+/* Updated background colors to match the dark theme from image 3 */
+.bg-background-dark {
+  /* This is handled by the background-image above */
+}
 
-  .bg-background-light {
-    background-color: #334155;
-  }
+.bg-background {
+  background-color: #1a1a1a;
+}
 
-  .bg-card {
-    background-color: #1e1b4b;
-  }
+.bg-background-light {
+  background-color: #2a2a2a;
+}
 
-  .bg-card-light {
-    background-color: #312e81;
-  }
+.bg-card {
+  background-color: rgba(26, 26, 26, 0.85);
+}
 
-  .bg-primary {
-    background-color: #6366f1;
-  }
+.bg-card-light {
+  background-color: #2a2a2a;
+}
 
-  .bg-primary-dark {
-    background-color: #4f46e5;
-  }
+.bg-primary {
+  background-color: #8b5cf6; /* Purple from the gradient */
+}
+
+.bg-primary-dark {
+  background-color: #7c3aed; /* Darker purple */
+}
 
 /* Media query adjustments */
 @media (max-height: 700px) {
